@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:shelf/shelf.dart';
@@ -17,7 +18,15 @@ final _router = Router()
 
 Handler get _timeHandler => Pipeline()
     .addMiddleware(AuthMiddleware(_authService).middleware)
-    .addHandler((_) => Response.ok(DateTime.now().toIso8601String()));
+    .addHandler(
+      (_) => Response.ok(
+        jsonEncode(
+          {
+            'time': DateTime.now().toIso8601String(),
+          },
+        ),
+      ),
+    );
 
 void main(List<String> args) async {
   // Use any available host or container IP (usually `0.0.0.0`).
