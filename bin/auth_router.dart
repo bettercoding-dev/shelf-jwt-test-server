@@ -29,6 +29,7 @@ class AuthRouter {
     } catch (error, trace) {
       print('could not login error: $error, stackTrace: $trace');
       return Response.badRequest(
+          headers: {'Content-Type': 'Application/JSON'},
           body: jsonEncode({'message': 'Invalid request.'}));
     }
   }
@@ -46,6 +47,7 @@ class AuthRouter {
     } catch (error, trace) {
       print('could not login error: $error, stackTrace: $trace');
       return Response.badRequest(
+          headers: {'Content-Type': 'Application/JSON'},
           body: jsonEncode({'message': 'Invalid request.'}));
     }
   }
@@ -55,6 +57,7 @@ class AuthRouter {
     final refreshToken = authService.generateRefreshToken(username);
 
     return Response.ok(
+      headers: {'Content-Type': 'Application/JSON'},
       jsonEncode(
         {
           'token': token,

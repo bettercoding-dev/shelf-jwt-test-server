@@ -20,6 +20,7 @@ Handler get _timeHandler => Pipeline()
     .addMiddleware(AuthMiddleware(_authService).middleware)
     .addHandler(
       (_) => Response.ok(
+        headers: {'Content-Type': 'Application/JSON'},
         jsonEncode(
           {
             'time': DateTime.now().toIso8601String(),

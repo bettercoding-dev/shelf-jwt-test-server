@@ -16,6 +16,7 @@ class AuthService {
   }
 
   Map<String, dynamic> validateToken(String token) {
+    print('validate token $token');
     final jwt = JWT.verify(token, SecretKey(_secret));
     return jwt.payload;
   }
