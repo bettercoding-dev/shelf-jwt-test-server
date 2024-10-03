@@ -5,7 +5,7 @@ configured to enable running with [Docker](https://www.docker.com/).
 
 This server is built for learning purposes. It can be used to implement frontend side JWT Token handling.
 
-The `token` is configured to expire after **1 Minute**, the `refreshToken` expires after **5 Minutes**.
+The `token` is configured to expire after **15 Seconds**, the `refreshToken` expires after **1 Minutes**.
 
 **This is not a production ready implementation and solely serves the purpose of demonstration!**
 

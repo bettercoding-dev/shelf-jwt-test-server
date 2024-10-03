@@ -26,8 +26,7 @@ class AuthRouter {
 
       final username = content['username'];
       return _issueTokens(username);
-    } catch (error, trace) {
-      print('could not login error: $error, stackTrace: $trace');
+    } catch (error) {
       return Response.badRequest(
           headers: {'Content-Type': 'Application/JSON'},
           body: jsonEncode({'message': 'Invalid request.'}));
@@ -44,8 +43,7 @@ class AuthRouter {
 
       final user = payload['user'];
       return _issueTokens(user);
-    } catch (error, trace) {
-      print('could not login error: $error, stackTrace: $trace');
+    } catch (error) {
       return Response.badRequest(
           headers: {'Content-Type': 'Application/JSON'},
           body: jsonEncode({'message': 'Invalid request.'}));
